@@ -63,10 +63,10 @@
             <tbody>
              @foreach ($produks as $produk)
               <tr>
-                <td>{{ $produk['kode_produk'] }}</td>
-                <td>{{ $produk['nama_produk'] }}</td>
-                <td>{{ $produk['jenis_produk'] }}</td>
-                <td>{{ $produk['harga'] }}</td>
+                <td>{{ $produk->kode_produk }}</td>
+                <td>{{ $produk->nama_produk }}</td>
+                <td>{{ $produk->jenis_produk }}</td>
+                <td>{{ $produk->harga }}</td>
               </tr>
               @endforeach
             </tbody>

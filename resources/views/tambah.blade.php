@@ -47,25 +47,25 @@
     <div class="container">
         <h1 class="mt-5 py-4">Form Tambah Produk</h1>
 
-        <form action="#" method="POST">
-
+        <form action="{{ route('produk.store') }}" method="POST">
+            @csrf
             <div class="row">
                 <div class="col-sm-4">
                     <label for="kode_produk" class="form-label">Kode Produk</label>
-                    <input type="string" id="kode_produk" class="form-control">
+                    <input type="string" id="kode_produk" class="form-control" name="kode_produk">
                 </div>
 
                 <div class="col-sm-4">
                     <label for="nama_produk" class="form-label">Nama Produk</label>
-                    <input type="string" id="nama_produk" class="form-control">
+                    <input type="string" id="nama_produk" class="form-control" name="nama_produk">
                 </div>
 
                 <div class="col-sm-4">
                     <label for="jenis_produk" class="form-label">Jenis Produk</label>
-                    <select class="form-select" aria-label="Default select example">
+                    <select class="form-select" name="jenis_produk">
                         <option selected>Open this select menu</option>
-                        @foreach ($jenis_produks as $jenis_produk)
-                            <option value="{{ $loop->iteration }}">{{ $jenis_produk }}</option>
+                        @foreach ($jenis_produks as $jenis)
+                            <option value="{{ $jenis->jenis_produk }}">{{ $jenis->jenis_produk }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -74,7 +74,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <label for="harga" class="form-label">Harga</label>
-                    <input type="number" id="harga" class="form-control">
+                    <input type="number" id="harga" class="form-control" name="harga">
                 </div>
 
                 <div class="d-flex col-sm-6 align-items-end mt-3">

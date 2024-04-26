@@ -1,0 +1,14 @@
+[
+    {
+     "kode_produk": "BGR001",
+     "nama_produk" : "Pena",
+     "jenis_produk" : "Alat Tulis",
+     "harga" : 20000
+    },
+    {
+     "kode_produk": "BGR002",
+     "nama_produk" : "Buku",
+     "jenis_produk" : "Alat Tulis",
+     "harga" : 15000
+    }
+ ]

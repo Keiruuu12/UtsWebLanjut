@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class MahasiswaController extends Controller
 {
@@ -20,8 +21,8 @@ class MahasiswaController extends Controller
      */
     public function create()
     {
-
-        $jenis_produks = ['Alat Tulis', 'Elektronik', 'Sembako'];
+        $file_jenis = file_get_contents(base_path('storage/json/jenis_produk.json'));
+        $jenis_produks = json_decode($file_jenis);
 
         return view('tambah', ["jenis_produks" => $jenis_produks]);
     }
@@ -31,7 +32,22 @@ class MahasiswaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $file_produk = file_get_contents(base_path('storage/json/produk.json'));
+        $produks = json_decode($file_produk);
+
+        $newData = [
+            'kode_produk' => $request->input('kode_produk'),
+            'nama_produk' => $request->input('nama_produk'),
+            'jenis_produk' => $request->input('jenis_produk'),
+            'harga' => $request->input('harga'),
+        ];
+
+        $produks[]= $newData;
+
+        $inputData = json_encode($produks);
+        file_put_contents(base_path('storage/json/produk.json'), $inputData);
+
+        return redirect()->route('produk.show');
     }
 
     /**
@@ -39,21 +55,8 @@ class MahasiswaController extends Controller
      */
     public function show()
     {  
-        $produks = [
-            [
-                'kode_produk' => 'BRG001',
-                'nama_produk' => 'Pena',
-                'jenis_produk' => 'Alat Tulis',
-                'harga' => '20000'
-            ],
-            [
-                'kode_produk' => 'BRG002',
-                'nama_produk' => 'Buku',
-                'jenis_produk' => 'Alat Tulis',
-                'harga' => '15000'   
-            ]
-            ];
-
+            $file_produk = file_get_contents(base_path('storage/json/produk.json'));
+            $produks = json_decode($file_produk);
             return view('produk', ['produks' => $produks]);
     }
 
