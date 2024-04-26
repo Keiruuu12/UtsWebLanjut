@@ -40,7 +40,31 @@
       </nav>
 
       <div class="container">
-        <h1 class="mt-5">Ini Halaman Home</h1>
+        <div class="py-4 d-flex align-items-center justify-content-between">
+            <h1 class="mt-5">Ini Halaman Produk</h1>
+            <a href="{{ url('/tambah') }}" class="btn btn-primary">Tambah Produk</a>
+        </div>
+        
+        <table class="table table-primary table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Kode Produk</th>
+                <th scope="col">Nama Produk</th>
+                <th scope="col">Jenis Produk</th>
+                <th scope="col">Harga</th>
+              </tr>
+            </thead>
+            <tbody>
+             @foreach ($produks as $produk)
+              <tr>
+                <td>{{ $produk['kode_produk'] }}</td>
+                <td>{{ $produk['nama_produk'] }}</td>
+                <td>{{ $produk['jenis_produk'] }}</td>
+                <td>{{ $produk['harga'] }}</td>
+              </tr>
+              @endforeach
+            </tbody>
+          </table>
       </div>
       
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
