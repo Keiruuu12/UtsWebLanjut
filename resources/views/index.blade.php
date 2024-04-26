@@ -12,7 +12,7 @@
 
     <nav class="navbar bg-body-tertiary fixed-top">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">UTS Laravel</a>
+          <a class="navbar-brand" href="{{ url('/home') }}">UTS Laravel</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -40,7 +40,7 @@
       </nav>
 
       <div class="container">
-        <h1 class="mt-5">Ini Halaman Home</h1>
+        <h1 class="mt-5 py-4">Ini Halaman Home</h1>
       </div>
       
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

@@ -20,7 +20,10 @@ class MahasiswaController extends Controller
      */
     public function create()
     {
-        //
+
+        $jenis_produks = ['Alat Tulis', 'Elektronik', 'Sembako'];
+
+        return view('tambah', ["jenis_produks" => $jenis_produks]);
     }
 
     /**
@@ -28,15 +31,30 @@ class MahasiswaController extends Controller
      */
     public function store(Request $request)
     {
-
+        //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Mahasiswa $mahasiswa)
+    public function show()
     {  
-        //
+        $produks = [
+            [
+                'kode_produk' => 'BRG001',
+                'nama_produk' => 'Pena',
+                'jenis_produk' => 'Alat Tulis',
+                'harga' => '20000'
+            ],
+            [
+                'kode_produk' => 'BRG002',
+                'nama_produk' => 'Buku',
+                'jenis_produk' => 'Alat Tulis',
+                'harga' => '15000'   
+            ]
+            ];
+
+            return view('produk', ['produks' => $produks]);
     }
 
     /**
